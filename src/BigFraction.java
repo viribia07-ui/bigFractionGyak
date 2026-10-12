@@ -1,4 +1,6 @@
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 public class BigFraction {
     private BigInteger numerator;   // számláló
@@ -46,14 +48,35 @@ public class BigFraction {
     }
 
     public static BigFraction parse(String fractionStr){
-        // "-3/5" TODO - or "(-3/5)"
         String[] split = fractionStr.split("/");
         String numeratorStr = split[0];
         String denominatorStr = split[1];
         return new BigFraction(numeratorStr, denominatorStr);
     }
+
+
     @Override
     public String toString(){
-        return String.format("(%s/%s)", getNumerator().toString(), getDenominator().toString());
+        return String.format("(%s/%s)",
+                getNumerator().toString(),
+                getDenominator().toString());
+    }
+
+    public BigDecimal toBigDecimal(){
+        BigDecimal bigDecimalNumerator = new BigDecimal(getNumerator());
+        BigDecimal bigDecimalDenominator = new BigDecimal(getDenominator());
+        BigDecimal result = bigDecimalNumerator.divide(bigDecimalDenominator, RoundingMode.HALF_UP);
+        return result;
+    }
+    /**
+     * TODO - common deno
+     * @param obj BigFraction
+     * @return boolean
+     * */
+
+    @Override
+    public boolean equals(Object obj){
+        BigFraction other = (BigFraction) obj;
+        return this.toBigDecimal().equals(other.toBigDecimal());
     }
 }

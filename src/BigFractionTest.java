@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 import java.math.BigInteger;
 
@@ -16,6 +17,14 @@ public class BigFractionTest {
     @Test
     public void testParse(){
         BigFraction a = BigFraction.parse("-2/5");
+        Assert.assertEquals("(-2/5)", a.toString());
 
+    }
+    @Test
+    public void testEquals(){
+        BigFraction a = BigFraction.parse("-2/5");
+        BigFraction b = BigFraction.parse("-2/5");
+        //System.out.println(a.equals(b));
+        Assert.assertTrue(a.equals(b));
     }
 }

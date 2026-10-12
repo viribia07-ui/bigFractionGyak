@@ -69,7 +69,7 @@ public class BigFraction {
         return result;
     }
     /**
-     * TODO - common deno
+     * TODO - common denominator check
      * @param obj BigFraction
      * @return boolean
      * */

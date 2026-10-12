@@ -27,4 +27,25 @@ public class BigFractionTest {
         //System.out.println(a.equals(b));
         Assert.assertTrue(a.equals(b));
     }
+    @Test
+    public void testSmallerThan(){
+        BigFraction a = BigFraction.parse("1/3");
+        BigFraction b = BigFraction.parse("2/3");
+        Assert.assertTrue(BigFractions.isSmallerThanB(a,b));
+    }
+    @Test
+    public void testRelations(){
+        BigFraction a = BigFraction.parse("1/3");
+        BigFraction b = BigFraction.parse("2/3");
+
+        Assert.assertTrue(BigFractions.isSmallerThanB(a,b));
+        Assert.assertFalse(BigFractions.isGreaterThanB(a,b));
+
+        Assert.assertTrue(BigFractions.isSmallerThanOrEqualB(a,b));
+        Assert.assertFalse(BigFractions.isGreaterThanOrEqualB(a,b));
+
+        Assert.assertFalse(BigFractions.equals(a,b));
+        Assert.assertTrue(BigFractions.notEquals(a,b));
+
+    }
 }

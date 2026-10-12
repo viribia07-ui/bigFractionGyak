@@ -30,9 +30,9 @@ public class BigFraction {
         setNumerator(new BigInteger(numeratorStr));
         setDenominator(new BigInteger(denominatorStr));
     }
-    public BigFraction(long numerator, long denominator){
-        setNumerator(BigInteger.valueOf(numerator));
-        setDenominator(BigInteger.valueOf(denominator));
+    public BigFraction(long numeratorL, long denominatorL){
+        setNumerator(BigInteger.valueOf(numeratorL));
+        setDenominator(BigInteger.valueOf(denominatorL));
     }
 
     public BigFraction(int numerator, int denominator){
